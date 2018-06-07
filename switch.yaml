@@ -1,0 +1,19 @@
+- platform: mqtt
+  name: "office_lamp"
+  state_topic: "stat/office_lamp/POWER"
+  command_topic: "cmnd/office_lamp/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  qos: 0
+  retain: true
+  
+- platform: mqtt
+  name: "spare_lamp"
+  state_topic: "stat/spare_lamp/POWER"
+  command_topic: "cmnd/spare_lamp/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  qos: 0
+  retain: true

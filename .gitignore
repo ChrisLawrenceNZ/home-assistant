@@ -1,0 +1,16 @@
+# HA Git Ignore
+secrets.yaml
+known_devices.yaml
+entity_registry.yaml
+*.conf
+
+# Executables
+*.db
+*.log
+
+# Folders
+/deps
+/custom_components
+/tts
+/panels
+/www

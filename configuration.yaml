@@ -1,0 +1,120 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 0
+  unit_system: metric
+  time_zone: !secret time_zone
+  customize: !include customize.yaml
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  api_password: !secret http_password
+  base_url: !secret base_url
+  # ssl_certificate: /ssl/fullchain.pem
+  # ssl_key: /ssl/privkey.pem
+
+api:
+  api_password: !secret api_password
+
+# Checks for available updates
+updater:
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Cloud
+cloud:
+
+# Additional Side Panels
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://hassio:3218
+  nodered_flows:
+    title: 'Node-RED Flows'
+    url: 'http://hassio:1880'
+    icon: mdi:nodejs
+
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml    
+
+#Arlo
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+camera:
+  - platform: arlo
+
+# Text to speech
+tts:
+  - platform: google
+
+# Device Tracker
+device_tracker:
+  - platform: bluetooth_tracker
+
+# Plex
+media_player:
+  - platform: plex
+
+#lifx
+light:
+  - platform: lifx
+
+#MQTT Settings
+mqtt:
+  broker: core-mosquitto
+  discovery: true
+  discovery_prefix: homeassistant
+
+#nest
+nest:
+  client_id: !secret nest_id
+  client_secret: !secret nest_secret
+
+# Harmony
+remote:
+  - platform: harmony
+    name: Harmony Hub
+    activity: Watch TV
+
+#Xiaomi Lights
+xiaomi_aqara:
+  gateways:
+    mac: !secret xiaomi_mac
+    key: !secret xiaomi_key
+
+
+#Includes
+group: !include groups.yaml
+automation: !include_dir_merge_list automation/
+script: !include scripts.yaml
+switch: !include switch.yaml
+sensor: !include sensors.yaml

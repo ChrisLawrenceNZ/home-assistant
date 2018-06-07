@@ -1,0 +1,178 @@
+- alias: "Turn on Fan"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature_158d0001fa5114
+    above: 22     
+  action:
+    service: switch.turn_on
+    entity_id: switch.plug_158d0001f55077
+
+#
+# Night Light
+#
+
+# - alias: Night Light
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_sensor_158d0001a2c7a2
+#     from: 'off'
+#     to: 'on'
+#   condition:
+#     - condition: numeric_state
+#       entity_id: sensor.illumination_7811dcb39434
+#       below: 50
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#   action:
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.tall_lamp
+#        brightness: 50
+#    - service: automation.turn_on
+#      data:
+#       entity_id: automation.MOTION_OFF
+# #
+# # No Motion
+# #
+# - alias: If there no motion for 5 minutes turn off the gateway light
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_sensor_158d0001a2c7a2
+#     from: 'on'
+#     to: 'off'
+#     for:
+#       seconds: 20
+#   condition:
+#     condition: time
+#     after: '22:00:00'
+#     before: '07:00:00'
+#   action:
+#     - service: light.turn_off
+#       entity_id: light.tall_lamp
+#     - service: light.turn_off
+#       entity_id: light.hue_lightstrip_plus_1
+#     - service: automation.turn_off
+#       data:
+#         entity_id: automation.Motion_off
+
+- alias: If there no motion for 2 hours turn off the tall lamp
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d0001a2c7a2
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 1
+  action:
+    - service: light.turn_off
+      entity_id: light.tall_lamp
+    - service: light.turn_off
+      entity_id: light.hue_lightstrip_plus_1
+    - service: automation.turn_off
+      data:
+        entity_id: automation.Motion_off
+
+- alias: Turn on light on door open
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_window_sensor_158d0001f3ccdc
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.illumination_7811dcb39434
+      below: 100
+  action:
+   - service: light.turn_on
+     data:
+       entity_id: light.tall_lamp
+       brightness: 255
+   - service: light.turn_on
+     data:
+       entity_id: light.hue_lightstrip_plus_1
+       brightness: 255   
+       
+
+
+- alias: Cube event rotate
+  trigger:
+    platform: event
+    event_type: cube_action
+    event_data:
+      entity_id: binary_sensor.cube_158d0001100d8a
+      action_type: rotate
+  action:
+      service: light.turn_off
+      data:
+        entity_id: light.tall_lamp
+
+- alias: Cube event flip90
+  trigger:
+    platform: event
+    event_type: cube_action
+    event_data:
+      entity_id: binary_sensor.cube_158d0001100d8a
+      action_type: flip90
+  action:
+      service: light.turn_on
+      data:
+        entity_id: light.tall_lamp
+        brightness: 255
+
+# - alias: Living Room Lights On
+#   trigger:
+#     - platform: event
+#       event_type: 1_click
+#       event_data:
+#         entity_id: sensor.living_room_switch
+#         click_type: single
+#     - platform: event
+#       event_type: 4_click
+#       event_data:
+#         entity_id: sensor.living_room_switch
+#         click_type: single
+#   action:
+#     service: light.toggle
+#     data:
+#       entity_id: light.tall_lamp
+#       brightness: 255
+
+
+# - alias: Single Click to toggle living room lamp
+#   trigger:
+#     platform: event
+#     event_type: click
+#     event_data:
+#       entity_id: binary_sensor.switch_158d0001e71d1f
+#       click_type: single
+#   action:
+#     service: light.toggle
+#     data:
+#       entity_id: light.tall_lamp
+
+# - alias: Double Click to turn off all lights
+#   trigger:
+#     platform: event
+#     event_type: click
+#     event_data:
+#       entity_id: binary_sensor.switch_158d0001e71d1f
+#       click_type: double
+#   action:
+#     service: light.toggle
+#     data:
+#       entity_id: group.all_lights
+
+# - alias: Let a dog bark on long press
+#   trigger:
+#     platform: event
+#     event_type: click
+#     event_data:
+#       entity_id: binary_sensor.switch_158d0001e71d1f
+#       click_type: long_click_press
+#   action:
+#     service: xiaomi_aqara.play_ringtone
+#     data:
+#       gw_mac: 7811dcb39434
+#       ringtone_id: 8
+#       ringtone_vol: 8

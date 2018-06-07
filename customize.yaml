@@ -1,0 +1,30 @@
+light.groupcamera_security_on:
+  hidden: true
+
+light.Gateway_Light_7811dcb39434:
+  friendly_name: Xiaomi Hub
+
+sensor.temperature_158d0001fa5114:
+  friendly_name: Living Room Temperature
+  icon: mdi:thermometer
+
+sensor.humidity_158d0001fa5114:
+  friendly_name: Living Room Humidity
+
+switch.plug_158d0001f55077:
+  friendly_name: Living Room Fan
+
+sensor.illumination_7811dcb39434:
+  friendly_name: Living Room Lux
+
+switch.office_lamp:
+  friendly_name: Office Lamp
+  icon: mdi:lightbulb
+
+switch.spare_lamp:
+  friendly_name: Spare Bedroom Lamp
+  icon: mdi:lightbulb
+
+device_tracker.oneplus_3:
+  friendly_name: Chris
+  icon: mdi:account
