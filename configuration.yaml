@@ -57,6 +57,10 @@ panel_iframe:
     title: 'Node-RED Flows'
     url: 'http://hassio:1880'
     icon: mdi:nodejs
+  sonweb:
+    title: SonWEB
+    icon: mdi:lightbulb-on
+    url: http://hassio:9541
 
 panel_custom:
   - name: floorplan

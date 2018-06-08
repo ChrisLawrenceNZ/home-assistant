@@ -54,10 +54,31 @@
   - platform: template
     sensors:
      bedroom_temperature:
-      friendly_name: 'Bedroom Temperature'
+      friendly_name: 'Bedroom'
       value_template: '{{states.sensor.bedroom_motion_sensor.attributes.temperature}}'
       unit_of_measurement: °C
      bedroom_lux:
       friendly_name: 'Bedroom Lux'
-      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.lux}}'
-      unit_of_measurement: lux
+      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lx
+     living_room_temperature:
+      friendly_name: 'Living Room'
+      value_template: '{{states.sensor.living_room_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+     living_room_lux:
+      friendly_name: 'Living Lux'
+      value_template: '{{states.sensor.living_room_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lx
+
+# MQTT Sensor
+  - platform: mqtt
+    name: "office_temp"
+    state_topic: "/office_temp/dht/Temperature"
+    qos: 0
+    unit_of_measurement: "C"
+
+  - platform: mqtt
+    name: "office_humidity"
+    state_topic: "/esp01/dht/Humidity"
+    qos: 0
+    unit_of_measurement: "%"

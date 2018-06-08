@@ -1,12 +1,16 @@
 # HA Git Ignore
+
+# Files
 secrets.yaml
 known_devices.yaml
 entity_registry.yaml
-*.conf
+.uuid
 
-# Executables
+# Extensions
 *.db
 *.log
+*.json
+*.conf
 
 # Folders
 /deps

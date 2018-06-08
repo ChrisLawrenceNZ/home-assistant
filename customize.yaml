@@ -4,8 +4,9 @@ light.groupcamera_security_on:
 light.Gateway_Light_7811dcb39434:
   friendly_name: Xiaomi Hub
 
+#Kitchen Temperature
 sensor.temperature_158d0001fa5114:
-  friendly_name: Living Room Temperature
+  friendly_name: Kitchen
   icon: mdi:thermometer
 
 sensor.humidity_158d0001fa5114:
@@ -27,4 +28,8 @@ switch.spare_lamp:
 
 device_tracker.oneplus_3:
   friendly_name: Chris
+  icon: mdi:account
+
+device_tracker.galaxy_s8:
+  friendly_name: Shasa
   icon: mdi:account

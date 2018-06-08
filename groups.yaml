@@ -68,6 +68,7 @@
    name: Location 
    entities:
       - device_tracker.oneplus_3
+      - device_tracker.galaxy_s8
 
   switches:
    name: Switches
@@ -96,12 +97,14 @@
       - sensor.temperature_158d0001fa5114
       - sensor.green_plant_temperature
       - sensor.bedroom_temperature
+      - sensor.living_room_temperature
       - sensor.humidity_158d0001fa5114
 
   light_level:
    name: Light Level
    entities:
       - sensor.bedroom_lux
+      - sensor.living_room_lux
       - sensor.illumination_7811dcb39434
 
   battery_status:
