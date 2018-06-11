@@ -73,12 +73,12 @@
 # MQTT Sensor
   - platform: mqtt
     name: "office_temp"
-    state_topic: "/office_temp/dht/Temperature"
+    state_topic: "/office_temp/temp/Temperature"
     qos: 0
     unit_of_measurement: "C"
 
   - platform: mqtt
     name: "office_humidity"
-    state_topic: "/esp01/dht/Humidity"
+    state_topic: "/office_temp/temp/Humidity"
     qos: 0
     unit_of_measurement: "%"

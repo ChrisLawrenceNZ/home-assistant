@@ -5,7 +5,7 @@
     icon: mdi:home 
     entities:
       - group.weather_display
-      - group.temperature_xiaomi
+      - group.temperature_sensor
       - group.date_time
       - media_player.kd49x9000e
       - media_player.plex
@@ -91,7 +91,7 @@
       - binary_sensor.motion_sensor_158d0001a2c7a2
       - binary_sensor.door_window_sensor_158d0001f3ccdc
 
-  temperature_xiaomi:
+  temperature_sensor:
    name: Temperature
    entities:
       - sensor.temperature_158d0001fa5114
@@ -99,6 +99,8 @@
       - sensor.bedroom_temperature
       - sensor.living_room_temperature
       - sensor.humidity_158d0001fa5114
+      - sensor.office_temp
+      - sensor.office_humidity
 
   light_level:
    name: Light Level
