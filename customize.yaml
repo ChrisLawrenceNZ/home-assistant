@@ -33,3 +33,6 @@ device_tracker.oneplus_6:
 device_tracker.galaxy_s8:
   friendly_name: Shasa
   icon: mdi:account
+
+binary_sensor.hue_bridge:
+  device_class: connectivity

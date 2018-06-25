@@ -28,7 +28,20 @@
       - type: since_last_boot
       - type: memory_use_percent
       - type: disk_use_percent
-        arg: /
+        arg: /home
+      - type: load_1m
+      - type: load_5m
+      - type: load_15m   
+     
+  - platform: cpuspeed
+    name: CPU
+
+  - platform: command_line
+    name: CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+
 # Date Time
   - platform: time_date
     display_options:
@@ -64,11 +77,15 @@
      living_room_temperature:
       friendly_name: 'Living Room'
       value_template: '{{states.sensor.living_room_motion_sensor.attributes.temperature}}'
-      unit_of_measurement: °C
+      unit_of_measurement: "C"
      living_room_lux:
       friendly_name: 'Living Lux'
       value_template: '{{states.sensor.living_room_motion_sensor.attributes.lx}}'
-      unit_of_measurement: lx
+      unit_of_measurement: "lx"
+     switch_fan_power:
+      friendly_name: 'Fan Power Use'
+      value_template: '{{states.switch.plug_158d0001f55077.attributes.load_power}}'
+      unit_of_measurement: "W"      
 
 # MQTT Sensor
   - platform: mqtt

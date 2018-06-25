@@ -48,8 +48,7 @@
     entities:
       - group.sensor_xiaomi
       - group.system
-      - sensor.harmony_hub
-      - sensor.hue_hub
+      - group.device_status
 
 #Groups
 
@@ -57,12 +56,22 @@
    name: System Information
    entities:
       - sensor.processor_use
+      - sensor.cpu_temperature
       - sensor.memory_use_percent
       - sensor.disk_use_percent_
       - sensor.last_boot
       - sensor.since_last_boot
+      - sensor.load_1m
+      - sensor.load_5m
+      - sensor.load_15m
       - sensor.installed_version
       - sensor.latest_version
+
+  device_status:
+   name: Device Status
+   control: hidden
+   entities:
+    - binary_sensor.hue_bridge
 
   tracker:
    name: Location 
@@ -74,6 +83,7 @@
    name: Switches
    entities:
       - switch.plug_158d0001f55077
+      - sensor.switch_fan_power
 
   miflora:
    name: Mi Flora

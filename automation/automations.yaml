@@ -1,3 +1,7 @@
+#
+# Most Automations have been moved to node-red
+#
+
 - alias: "Turn on Fan"
   trigger:
     platform: numeric_state
@@ -56,22 +60,22 @@
 #       data:
 #         entity_id: automation.Motion_off
 
-- alias: If there no motion for 2 hours turn off the tall lamp
-  trigger:
-    platform: state
-    entity_id: binary_sensor.motion_sensor_158d0001a2c7a2
-    from: 'on'
-    to: 'off'
-    for:
-      hours: 1
-  action:
-    - service: light.turn_off
-      entity_id: light.tall_lamp
-    - service: light.turn_off
-      entity_id: light.hue_lightstrip_plus_1
-    - service: automation.turn_off
-      data:
-        entity_id: automation.Motion_off
+# - alias: If there no motion for 2 hours turn off the tall lamp
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_sensor_158d0001a2c7a2
+#     from: 'on'
+#     to: 'off'
+#     for:
+#       hours: 1
+#   action:
+#     - service: light.turn_off
+#       entity_id: light.tall_lamp
+#     - service: light.turn_off
+#       entity_id: light.hue_lightstrip_plus_1
+#     - service: automation.turn_off
+#       data:
+#         entity_id: automation.Motion_off
 
 - alias: Turn on light on door open
   trigger:
