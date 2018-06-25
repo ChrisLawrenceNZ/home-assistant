@@ -122,3 +122,4 @@ automation: !include_dir_merge_list automation/
 script: !include scripts.yaml
 switch: !include switch.yaml
 sensor: !include sensors.yaml
+binary_sensor: !include binary_sensor.yaml

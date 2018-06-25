@@ -73,7 +73,7 @@
 # MQTT Sensor
   - platform: mqtt
     name: "office_temp"
-    state_topic: "/office_temp/temp/Temperature"
+    state_topic: "/office_temp/temp/"
     qos: 0
     unit_of_measurement: "C"
 

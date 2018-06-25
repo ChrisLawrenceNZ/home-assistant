@@ -11,6 +11,8 @@ entity_registry.yaml
 *.log
 *.json
 *.conf
+*.db-shm
+*.db-wal
 
 # Folders
 /deps
@@ -18,3 +20,4 @@ entity_registry.yaml
 /tts
 /panels
 /www
+/node-red

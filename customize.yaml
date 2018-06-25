@@ -26,7 +26,7 @@ switch.spare_lamp:
   friendly_name: Spare Bedroom Lamp
   icon: mdi:lightbulb
 
-device_tracker.oneplus_3:
+device_tracker.oneplus_6:
   friendly_name: Chris
   icon: mdi:account
 
