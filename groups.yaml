@@ -84,6 +84,7 @@
    entities:
       - switch.plug_158d0001f55077
       - sensor.switch_fan_power
+      - switch.living_fan
 
   miflora:
    name: Mi Flora

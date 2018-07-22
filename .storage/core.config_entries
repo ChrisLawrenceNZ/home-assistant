@@ -1,0 +1,42 @@
+{
+    "data": {
+        "entries": [
+            {
+                "data": {
+                    "impl_domain": "nest",
+                    "tokens": {
+                        "access_token": "c.39LtTcjwZzNoFqlTWR0UUEw0EXpm0GfgbzDaiHJtoeectKElQnAjWAULYV6I3aLAMkx1WNfu6nyuKF5lF1XYMrp3VKWlGuPOVgIOec5HZngBFUd8LPugpF3hkt0WtyHPX02tmUeJ9pBUFz1O",
+                        "expires_in": 315360000
+                    }
+                },
+                "domain": "nest",
+                "entry_id": "4168e2b8c66a4409a535dfa533cd55bd",
+                "source": "import",
+                "title": "Nest (import from configuration.yaml)",
+                "version": 1
+            },
+            {
+                "data": {},
+                "domain": "cast",
+                "entry_id": "c5c5b97cad514a1ab45e16a16e3012d1",
+                "source": "discovery",
+                "title": "Google Cast",
+                "version": 1
+            },
+            {
+                "data": {
+                    "bridge_id": "001788FFFE7A49DA",
+                    "host": "192.168.20.17",
+                    "username": "hNeqou1aN-nj3LwhNngACYbFnS9eQOh58ZjHwFgG"
+                },
+                "domain": "hue",
+                "entry_id": "adad04709047472ea4d33933f351b16a",
+                "source": "discovery",
+                "title": "Philips hue",
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

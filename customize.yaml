@@ -13,7 +13,7 @@ sensor.humidity_158d0001fa5114:
   friendly_name: Living Room Humidity
 
 switch.plug_158d0001f55077:
-  friendly_name: Living Room Fan
+  friendly_name: Dehumidifer
 
 sensor.illumination_7811dcb39434:
   friendly_name: Living Room Lux
@@ -25,6 +25,10 @@ switch.office_lamp:
 switch.spare_lamp:
   friendly_name: Spare Bedroom Lamp
   icon: mdi:lightbulb
+
+switch.living_fan:
+  friendly_name: Living Room Fan
+  icon: mdi:fan
 
 device_tracker.oneplus_6:
   friendly_name: Chris

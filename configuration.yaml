@@ -110,10 +110,10 @@ remote:
     activity: Watch TV
 
 #Xiaomi Lights
-xiaomi_aqara:
-  gateways:
-    mac: !secret xiaomi_mac
-    key: !secret xiaomi_key
+# xiaomi_aqara:
+#   gateways:
+#     mac: !secret xiaomi_mac
+#     key: !secret xiaomi_key
 
 
 #Includes
