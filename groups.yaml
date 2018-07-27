@@ -67,16 +67,10 @@
       - sensor.installed_version
       - sensor.latest_version
 
-  device_status:
-   name: Device Status
-   control: hidden
-   entities:
-    - binary_sensor.hue_bridge
-
   tracker:
    name: Location 
    entities:
-      - device_tracker.oneplus_3
+      - device_tracker.oneplus_6
       - device_tracker.galaxy_s8
 
   switches:
@@ -132,6 +126,8 @@
       - binary_sensor.hallway_nest_protect_online
       - binary_sensor.kitchen_nest_protect_online
       - binary_sensor.living_room_nest_protect_online
+      - binary_sensor.hue_bridge
+
 
   bedroom_lights:
     name: Bedroom Lights
@@ -153,7 +149,7 @@
     name: Living Room Lights
     entities:
       - light.Gateway_Light_7811dcb39434
-      - light.tall_lamp
+      - light.hue_color_lamp_1
       - light.hue_lightstrip_plus_1
       - light.hue_go_1
       - switch.office_lamp

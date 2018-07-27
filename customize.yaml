@@ -22,6 +22,10 @@ switch.office_lamp:
   friendly_name: Office Lamp
   icon: mdi:lightbulb
 
+light.hue_color_lamp_1:
+  friendly_name: Tall Lamp
+  icon: mdi:lightbulb
+
 switch.spare_lamp:
   friendly_name: Spare Bedroom Lamp
   icon: mdi:lightbulb

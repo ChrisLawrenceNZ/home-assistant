@@ -70,11 +70,11 @@ panel_custom:
     config: !include floorplan.yaml    
 
 #Arlo
-arlo:
-  username: !secret arlo_username
-  password: !secret arlo_password
-camera:
-  - platform: arlo
+# arlo:
+#   username: !secret arlo_username
+#   password: !secret arlo_password
+# camera:
+#   - platform: arlo
 
 # Text to speech
 tts:
@@ -87,10 +87,6 @@ device_tracker:
 # Plex
 media_player:
   - platform: plex
-
-#lifx
-light:
-  - platform: lifx
 
 #MQTT Settings
 mqtt:

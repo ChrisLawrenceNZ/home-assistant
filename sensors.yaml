@@ -82,10 +82,10 @@
       friendly_name: 'Living Lux'
       value_template: '{{states.sensor.living_room_motion_sensor.attributes.lx}}'
       unit_of_measurement: "lx"
-     switch_fan_power:
-      friendly_name: 'Fan Power Use'
-      value_template: '{{states.switch.plug_158d0001f55077.attributes.load_power}}'
-      unit_of_measurement: "W"      
+    #  switch_fan_power:
+    #   friendly_name: 'Fan Power Use'
+    #   value_template: '{{states.switch.plug_158d0001f55077.attributes.load_power}}'
+    #   unit_of_measurement: "W"      
 
 # MQTT Sensor
   - platform: mqtt
