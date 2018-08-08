@@ -20,7 +20,8 @@
       - dewpointTemperature
 #Plex
   - platform: plex
-  #Systemstats
+
+#Systemstats
   - platform: systemmonitor
     resources:
       - type: processor_use
@@ -48,6 +49,7 @@
       - 'time'
       - 'date'
       - 'beat'
+
 # Hue Custom Component
   - platform: hue
     ip_address: !secret hue_ip
@@ -63,7 +65,8 @@
       - light
       - conductivity
       - battery
-# Template Sensors  
+
+# Template Sensors
   - platform: template
     sensors:
      bedroom_temperature:
