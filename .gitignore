@@ -13,6 +13,7 @@ entity_registry.yaml
 *.conf
 *.db-shm
 *.db-wal
+*.storage
 
 # Folders
 /deps

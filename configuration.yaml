@@ -28,6 +28,16 @@ api:
 updater:
   include_used_components: true
 
+# Logs for Zigbee
+logger:
+ default: warn
+ logs:
+  homeassistant.components.zha: debug
+  bellows.ezsp: debug
+  bellows.uart: debug
+  zigpy.zdo: debug
+  zigpy.application: debug
+
 # Discover some devices automatically
 discovery:
 
@@ -62,7 +72,7 @@ panel_iframe:
   sonweb:
     title: SonWEB
     icon: mdi:lightbulb-on
-    url: http://hassio:9541
+    url: https://hassio:9541
   controlpanel:
     title: Control Panel
     icon: mdi:tablet-ipad
@@ -75,6 +85,12 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan
     config: !include floorplan.yaml    
+
+# Zigbee Settings and Database
+zha:
+ usb_path: /dev/ttyUSB0
+ database_path: zigbee.db
+ baudrate: 57600
 
 #Arlo
 # arlo:
