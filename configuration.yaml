@@ -91,6 +91,11 @@ zha:
  usb_path: /dev/ttyUSB0
  database_path: zigbee.db
  baudrate: 57600
+ device_config:
+    "00:15:8d:00:01:fa:51:14":
+      type: sensor
+    "00:15:8d:00:01:a2:c7:a2":
+      type: binary_sensor
 
 #Arlo
 # arlo:
@@ -117,6 +122,11 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 
+# Weather 
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+
 #nest
 nest:
   client_id: !secret nest_id
@@ -128,12 +138,11 @@ remote:
     name: Harmony Hub
     activity: Watch TV
 
-#Xiaomi Lights
-# xiaomi_aqara:
-#   gateways:
-#     mac: !secret xiaomi_mac
-#     key: !secret xiaomi_key
-
+# Xiaomi Mi
+xiaomi_aqara:
+  gateways:
+    mac: !secret xiaomi_mac
+    key: !secret xiaomi_key
 
 #Includes
 group: !include groups.yaml
@@ -142,3 +151,4 @@ script: !include scripts.yaml
 switch: !include switch.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
+plant: !include plant.yaml

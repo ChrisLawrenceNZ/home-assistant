@@ -1,0 +1,9 @@
+# Plants
+  green_plant:
+    sensors:
+      moisture: sensor.green_plant_moisture
+      battery: sensor.green_plant_battery
+      temperature: sensor.green_plant_temperature
+      conductivity: sensor.green_plant_conductivity
+      brightness: sensor.green_plant_light_intensity
+    min_moisture: 20

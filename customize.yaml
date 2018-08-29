@@ -44,3 +44,9 @@ device_tracker.galaxy_s8:
 
 binary_sensor.hue_bridge:
   device_class: connectivity
+
+sensor.lumi_lumisens_01fa5114_1_1029:
+   friendly_name: Kitchen Humidity
+
+sensor.lumi_lumisensor_ht_01fa5114_1_1026:
+   friendly_name: Kitchen Temperature

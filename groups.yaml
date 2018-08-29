@@ -87,21 +87,14 @@
       - sensor.green_plant_moisture
       - sensor.green_plant_temperature
 
-  sensor_xiaomi:
-   name: Sensor
-   entities:
-      - binary_sensor.cube_158d0001100d8a
-      - binary_sensor.motion_sensor_158d0001a2c7a2
-      - binary_sensor.door_window_sensor_158d0001f3ccdc
-
   temperature_sensor:
    name: Temperature
    entities:
-      - sensor.temperature_158d0001fa5114
+      - sensor.lumi_lumisens_01fa5114_1_1029
+      - sensor.lumi_lumisensor_ht_01fa5114_1_1026
       - sensor.green_plant_temperature
       - sensor.bedroom_temperature
       - sensor.living_room_temperature
-      - sensor.humidity_158d0001fa5114
       - sensor.office_temp
       - sensor.office_humidity
 
