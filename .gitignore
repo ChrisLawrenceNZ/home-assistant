@@ -15,6 +15,7 @@ entity_registry.yaml
 *.db-wal
 *.storage
 
+
 # Folders
 /deps
 /custom_components
@@ -22,3 +23,4 @@ entity_registry.yaml
 /panels
 /www
 /node-red
+.storage/core.config_entries

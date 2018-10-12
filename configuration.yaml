@@ -40,7 +40,9 @@ logger:
 
 # Discover some devices automatically
 discovery:
-
+  ignore:
+    - plex_mediaserver
+    
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
@@ -152,3 +154,4 @@ switch: !include switch.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
 plant: !include plant.yaml
+climate: !include climate.yaml
