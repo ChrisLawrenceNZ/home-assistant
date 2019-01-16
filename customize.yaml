@@ -18,16 +18,12 @@ switch.plug_158d0001f55077:
 sensor.illumination_7811dcb39434:
   friendly_name: Living Room Lux
 
-switch.office_lamp:
-  friendly_name: Office Lamp
-  icon: mdi:lightbulb
-
-light.hue_color_lamp_1:
-  friendly_name: Tall Lamp
+switch.spare_lamp2:
+  friendly_name: Spare Bedroom Lamp 2
   icon: mdi:lightbulb
 
 switch.spare_lamp:
-  friendly_name: Spare Bedroom Lamp
+  friendly_name: Spare Bedroom Lamp 1
   icon: mdi:lightbulb
 
 switch.living_fan:
@@ -44,9 +40,3 @@ device_tracker.galaxy_s8:
 
 binary_sensor.hue_bridge:
   device_class: connectivity
-
-sensor.lumi_lumisens_01fa5114_1_1029:
-   friendly_name: Kitchen Humidity
-
-sensor.lumi_lumisensor_ht_01fa5114_1_1026:
-   friendly_name: Kitchen Temperature

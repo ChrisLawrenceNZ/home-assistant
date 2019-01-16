@@ -1,5 +1,8 @@
-- platform: generic_thermostat
-  name: Lounge
-  heater: switch.living_fan
-  target_sensor: sensor.living_room_temperature
-  ac_mode: true
+#Climate
+
+
+# - platform: generic_thermostat
+#   name: Lounge
+#   heater: switch.living_fan
+#   target_sensor: sensor.living_room_temperature
+#   ac_mode: true

@@ -13,6 +13,10 @@ frontend:
 # Enables configuration UI
 config:
 
+# Enables the lovelace yaml mode
+lovelace:
+  mode: yaml
+
 http:
   api_password: !secret http_password
   base_url: !secret base_url
@@ -75,11 +79,10 @@ panel_iframe:
     title: SonWEB
     icon: mdi:lightbulb-on
     url: https://hassio:9541
-  controlpanel:
-    title: Control Panel
-    icon: mdi:tablet-ipad
-    url: http://hassio:7080
-
+  # controlpanel:
+  #   title: Control Panel
+  #   icon: mdi:tablet-ipad
+  #   url: http://hassio:7080
 
 panel_custom:
   - name: floorplan
@@ -93,18 +96,18 @@ zha:
  usb_path: /dev/ttyUSB0
  database_path: zigbee.db
  baudrate: 57600
- device_config:
-    "00:15:8d:00:01:fa:51:14":
-      type: sensor
-    "00:15:8d:00:01:a2:c7:a2":
-      type: binary_sensor
+#  device_config:
+#     00:15:8d:00:01:fa:51:14:
+#       type: 'sensor'
+#     00:15:8d:00:01:a2:c7:a2:
+#       type: 'binary_sensor'
 
-#Arlo
-# arlo:
-#   username: !secret arlo_username
-#   password: !secret arlo_password
-# camera:
-#   - platform: arlo
+# Arlo
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+camera:
+  - platform: arlo
 
 # Text to speech
 tts:
@@ -118,11 +121,11 @@ device_tracker:
 # media_player:
 #   - platform: plex
 
-#MQTT Settings
-mqtt:
-  broker: core-mosquitto
-  discovery: true
-  discovery_prefix: homeassistant
+# #MQTT Settings
+# mqtt:
+#   broker: core-mosquitto
+#   discovery: true
+#   discovery_prefix: homeassistant
 
 # Weather 
 weather:

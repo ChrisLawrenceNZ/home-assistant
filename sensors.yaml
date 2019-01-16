@@ -10,14 +10,9 @@
     resources:
       - type: processor_use
       - type: last_boot
-      - type: since_last_boot
       - type: memory_use_percent
       - type: disk_use_percent
         arg: /home
-      - type: load_1m
-      - type: load_5m
-      - type: load_15m   
-     
   - platform: cpuspeed
     name: CPU
 
@@ -40,6 +35,12 @@
   - platform: hue
     ip_address: !secret hue_ip
     token: !secret hue_token
+  - platform: hue
+    ip_address: !secret hue_ip_2
+    token: !secret hue_token_2
+  - platform: hue
+    ip_address: !secret hue_ip_3
+    token: !secret hue_token_3
 
 # Mi Flora Care
   - platform: miflora
@@ -55,22 +56,71 @@
 # Template Sensors
   - platform: template
     sensors:
+    # Master Bedroom
      bedroom_temperature:
-      friendly_name: 'Bedroom'
+      friendly_name: 'Master Bedroom'
       value_template: '{{states.sensor.bedroom_motion_sensor.attributes.temperature}}'
       unit_of_measurement: °C
      bedroom_lux:
-      friendly_name: 'Bedroom Lux'
+      friendly_name: 'Master Bedroom Lux'
       value_template: '{{states.sensor.bedroom_motion_sensor.attributes.lx}}'
       unit_of_measurement: lx
-     living_room_temperature:
-      friendly_name: 'Living Room'
-      value_template: '{{states.sensor.living_room_motion_sensor.attributes.temperature}}'
+    # Master Bedroom Wardrobe
+     bedroom_wardrobe_temperature:
+      friendly_name: 'Master Bedroom Wardrobe'
+      value_template: '{{states.sensor.wardrobe_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: °C
+     bedroom_wardrobe_lux:
+      friendly_name: 'Master Bedroom Wardrobe Lux'
+      value_template: '{{states.sensor.wardrobe_motion_sensor.attributes.lx}}'
+      unit_of_measurement: lx
+    # Olivia Room
+     kids_room_temperature:
+      friendly_name: 'Olivia Room'
+      value_template: '{{states.sensor.kids_room_motion_sensor.attributes.temperature}}'
       unit_of_measurement: "C"
-     living_room_lux:
-      friendly_name: 'Living Lux'
-      value_template: '{{states.sensor.living_room_motion_sensor.attributes.lx}}'
+     kids_room_lux:
+      friendly_name: 'Olivia Room Lux'
+      value_template: '{{states.sensor.kids_room_motion_sensor.attributes.lx}}'
       unit_of_measurement: "lx"
+    # Bedroom Hallway
+     bedroom_hallway_temperature:
+      friendly_name: 'Bedroom Hallway'
+      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: "C"
+     bedroom_hallway_lux:
+      friendly_name: 'Bedroom Hallway Lux'
+      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.lx}}'
+      unit_of_measurement: "lx"    
+    # Lounge Hallway
+     lounge_hallway_temperature:
+      friendly_name: 'Lounge Hallway'
+      value_template: '{{states.sensor.lounge_hallway_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: "C"
+     lounge_hallway_lux:
+      friendly_name: 'Lounge Hallway Lux'
+      value_template: '{{states.sensor.lounge_hallway_motion_sensor.attributes.lx}}'
+      unit_of_measurement: "lx"    
+    # Pantry Hallway
+     pantry_temperature:
+      friendly_name: 'Pantry'
+      value_template: '{{states.sensor.pantry_motion_sensor.attributes.temperature}}'
+      unit_of_measurement: "C"
+     pantry_lux:
+      friendly_name: 'Pantry Lux'
+      value_template: '{{states.sensor.pantry_motion_sensor.attributes.lx}}'
+      unit_of_measurement: "lx"       
+    # Garage
+     garage_temperature:
+      friendly_name: 'Garage'
+      value_template: '{{states.sensor.garage_motion_sensor_motion_1.attributes.temperature}}'
+      unit_of_measurement: "C"
+     garage_lux:
+      friendly_name: 'Garage Lux'
+      value_template: '{{states.sensor.garage_motion_sensor_motion_1.attributes.lx}}'
+      unit_of_measurement: "lx"    
+
+    # Switch Fan Power Use
      switch_fan_power:
       friendly_name: 'Fan Power Use'
       value_template: '{{states.switch.plug_158d0001f55077.attributes.load_power}}'
@@ -88,3 +138,9 @@
     state_topic: "/office_temp/Temp/Humidity"
     qos: 0
     unit_of_measurement: "%"
+
+# # Zigee
+#   - platform: zigbee
+#     name: Kitchen Temperature ZigBee
+#     type: temperature
+#     address: 00158d0001fa5114
