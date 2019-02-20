@@ -27,7 +27,6 @@
     display_options:
       - 'time'
       - 'date'
-      - 'beat'
       - 'date_time'
       - 'time_date'
 

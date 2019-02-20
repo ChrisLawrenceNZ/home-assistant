@@ -1,0 +1,16 @@
+# Switches as Lights
+  - platform: switch
+    name: Office Lamp
+    entity_id:  switch.office_lamp
+
+  - platform: switch
+    name: Spare Lamp
+    entity_id:  switch.spare_lamp
+  
+  - platform: switch
+    name: Spare Lamp 2
+    entity_id:  switch.spare_lamp2
+
+
+
+    

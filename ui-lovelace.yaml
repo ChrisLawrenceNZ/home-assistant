@@ -8,11 +8,32 @@ views:
     title: default_view
     icon: mdi:home
     cards:
-      - id: a4b42b5e267f43e3856a752185ce790b  # Automatically created id
+# Weather
+      - id: a4b42b5e267f43e3856a752185ce790b 
         type: weather-forecast
         title: Weather
         entity: weather.dark_sky
-      - id: 46b6ca2c801540a7a8292e15e9a1c323  # Automatically created id
+# Lights
+      - id: Light Groups
+        type: entities
+        title: Light Group
+        entities: 
+          - light.kitchen
+          - light.kitchen_pendent
+          - light.living_room
+          - light.pantry
+          - light.spare_bedroom
+          - light.wardrobe
+          - light.office
+          - light.kid_s_bedroom
+          - light.hallway
+          - light.garage
+          - light.laundry
+          - light.driveway
+          - light.dining
+          - light.bedroom
+# Temperature
+      - id: 46b6ca2c801540a7a8292e15e9a1c323
         type: glance
         title: Temperature
         show_header_toggle: true
@@ -27,34 +48,38 @@ views:
           - sensor.garage_temperature
           - sensor.office_temp
           - sensor.office_humidity
-      - id: 240078f42a5549b5bd69091a45c6291b  # Automatically created id
+# Time and Date
+      - id: 240078f42a5549b5bd69091a45c6291b
         type: vertical-stack
         title: Date and Time
         show_header_toggle: true
         cards:
           - type: entities
             entities:
-              - sensor.time__date
-      - id: 285728332f374b6f93c985039d1df2a0  # Automatically created id
+              - sensor.time_date
+# Switches
+      - id: 285728332f374b6f93c985039d1df2a0
         type: entities
         title: Switches
         show_header_toggle: true
         entities:
           - switch.plug_158d0001f55077
-          - switch.living_fan
-      - id: 3bef07454f2d473fab52a502053e2b2d  # Automatically created id
+# Locations
+      - id: 3bef07454f2d473fab52a502053e2b2d 
         type: glance
         title: Location
         show_header_toggle: true
         entities:
           - device_tracker.oneplus_6
           - device_tracker.galaxy_s8
+#
 # Lights
-  - id: 1  # Automatically created id
+#
+  - id: 1
     title: light_view
     icon: mdi:lightbulb
     cards:
-      # Automatically created id
+      # Master Bedroom
       - id: efa326382ef14eec9982d60c65e48413 
         type: entities
         title: Master Bedroom Lights
@@ -75,7 +100,8 @@ views:
           - light.hue_ambiance_downlight_1_3
           - light.hue_ambiance_downlight_2_2
           - light.hue_color_lamp_1
-      # Automatically created id
+          - switch.office_lamp
+      # Spare Room
       - id: e50423c14dc1410f902215103d5b05ae 
         type: entities
         title: Spare Bedroom Lights
@@ -85,23 +111,32 @@ views:
           - switch.spare_lamp2
           - light.hue_ambiance_downlight_1_5
           - light.hue_ambiance_downlight_1_6
-      - id: eabe55d5c8114e6aa476a8dbebbaf16a  # Automatically created id
+  # Lounge
+      - id: eabe55d5c8114e6aa476a8dbebbaf16a
         type: entities
-        title: Living Room Lights
+        title: Lounge Lights
         show_header_toggle: true
         entities:
-          - light.gateway_light_7811dcb39434
-          - light.hue_color_lamp_1
-          - light.hue_lightstrip_plus_1
-      - id: 6d9dbfb5046b41438ab4de67382cd57a  # Automatically created id
+          - light.lounge_downlight_1
+          - light.lounge_downlight_2
+          - light.lounge_downlight_3
+          - light.lounge_downlight_4
+          - light.lounge_downlight_5
+          - light.lounge_downlight_6
+          - light.lounge_downlight_7
+          - light.lounge_downlight_8
+# Office Lights
+      - id: 6d9dbfb5046b41438ab4de67382cd57a 
         type: entities
         title: Office Lights
         show_header_toggle: true
         entities:
           - light.hue_go_1
-          - switch.office_lamp
-          - light.hue_white_lamp_1
-      - id: 9bdc78b9464446c7bd19845a55c77cbc  # Automatically created id
+          - light.hue_ambiance_downlight_1
+          - light.hue_ambiance_downlight_2
+      
+  # Light Level
+      - id: 9bdc78b9464446c7bd19845a55c77cbc
         type: entities
         title: Light Level
         show_header_toggle: true
@@ -121,6 +156,15 @@ views:
         camera_image: camera.living_room
         show_info: true
         tap_action: dialog
+  # Baby Camera
+      - id: babycamera
+        type: picture-entity
+        title: Living Room
+        entity:  camera.baby
+        camera_image:  camera.baby
+        show_info: true
+        tap_action: dialog
+
 # Plants
   - id: 3  # Automatically created id
     title: outside_view
@@ -143,6 +187,8 @@ views:
           - sensor.hallway_nest_protect_battery_health
           - sensor.kitchen_nest_protect_battery_health
           - sensor.living_room_nest_protect_battery_health
+          - sensor.living_room_nest_protect_battery_health_2
+          - sensor.master_bedroom_nest_protect_battery_health
 # Debug
   - id: 5  # Automatically created id
     title: debug_view

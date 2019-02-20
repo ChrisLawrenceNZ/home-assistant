@@ -19,9 +19,9 @@
   retain: true
 
 - platform: mqtt
-  name: "living_fan"
-  state_topic: "stat/living_fan/POWER"
-  command_topic: "cmnd/living_fan/POWER"
+  name: "office_lamp"
+  state_topic: "stat/office_lamp/POWER"
+  command_topic: "cmnd/office_lamp/POWER"
   payload_on: "ON"
   payload_off: "OFF"
   optimistic: false

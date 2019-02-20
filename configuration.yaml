@@ -62,8 +62,36 @@ map:
 # Track the sun
 sun:
 
-# Cloud
+# Cloud Google Home Assistant
 cloud:
+  google_actions:
+    filter:
+# Devices not to sync to google assistant
+     exclude_domains:
+        - media_player
+        - group
+     exclude_entities:
+        - switch.office_lamp
+        - switch.spare_lamp
+        - switch.spare_lamp2
+        - light.gateway_light_7811dcb39434
+        - light.entertainment_area_1
+        - light.front_door
+        - light.hallway
+        - light.garage
+        - light.driveway
+        - light.dining
+        - light.bedroom
+        - light.kid_s_bedroom
+        - light.kitchen
+        - light.kitchen_pendent
+        - light.laundry
+        - light.living_room
+        - light.office
+        - light.pantry
+        - light.wardrobe
+        - light.spare_bedroom
+
 
 # Additional Side Panels
 panel_iframe:
@@ -121,7 +149,7 @@ device_tracker:
 # media_player:
 #   - platform: plex
 
-# #MQTT Settings
+# #MQTT Settings - Moved to builtin Intergration
 # mqtt:
 #   broker: core-mosquitto
 #   discovery: true
@@ -137,17 +165,17 @@ nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
 
-# Harmony
-remote:
-  - platform: harmony
-    name: Harmony Hub
-    activity: Watch TV
-
 # Xiaomi Mi
 xiaomi_aqara:
   gateways:
     mac: !secret xiaomi_mac
     key: !secret xiaomi_key
+
+# Xiaomi Mi Vacuum
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.2
+    token: !secret xiaomivac_key
 
 #Includes
 group: !include groups.yaml
@@ -158,3 +186,4 @@ sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
 plant: !include plant.yaml
 climate: !include climate.yaml
+light: !include light.yaml

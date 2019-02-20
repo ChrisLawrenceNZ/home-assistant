@@ -26,9 +26,9 @@ switch.spare_lamp:
   friendly_name: Spare Bedroom Lamp 1
   icon: mdi:lightbulb
 
-switch.living_fan:
-  friendly_name: Living Room Fan
-  icon: mdi:fan
+switch.office_lamp:
+  friendly_name: Office Lamp
+  icon: mdi:lightbulb
 
 device_tracker.oneplus_6:
   friendly_name: Chris
@@ -40,3 +40,6 @@ device_tracker.galaxy_s8:
 
 binary_sensor.hue_bridge:
   device_class: connectivity
+
+light.kid_s_bedroom:
+  friendly_name: Olivia Room
