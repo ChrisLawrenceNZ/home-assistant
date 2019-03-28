@@ -31,13 +31,13 @@
       - 'time_date'
 
 # Hue Custom Component
-  - platform: hue
+  - platform: hue_custom
     ip_address: !secret hue_ip
     token: !secret hue_token
-  - platform: hue
+  - platform: hue_custom
     ip_address: !secret hue_ip_2
     token: !secret hue_token_2
-  - platform: hue
+  - platform: hue_custom
     ip_address: !secret hue_ip_3
     token: !secret hue_token_3
 
@@ -58,72 +58,84 @@
     # Master Bedroom
      bedroom_temperature:
       friendly_name: 'Master Bedroom'
-      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.temperature}}'
+      value_template: '{{states.binary_sensor.bedroom_motion_sensor.attributes.temperature}}'
       unit_of_measurement: °C
      bedroom_lux:
       friendly_name: 'Master Bedroom Lux'
-      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.lx}}'
+      value_template: '{{states.binary_sensor.bedroom_motion_sensor.attributes.lx}}'
       unit_of_measurement: lx
+
     # Master Bedroom Wardrobe
      bedroom_wardrobe_temperature:
       friendly_name: 'Master Bedroom Wardrobe'
-      value_template: '{{states.sensor.wardrobe_motion_sensor.attributes.temperature}}'
+      value_template: '{{states.binary_sensor.wardrobe_motion_sensor.attributes.temperature}}'
       unit_of_measurement: °C
      bedroom_wardrobe_lux:
       friendly_name: 'Master Bedroom Wardrobe Lux'
-      value_template: '{{states.sensor.wardrobe_motion_sensor.attributes.lx}}'
+      value_template: '{{states.binary_sensor.wardrobe_motion_sensor.attributes.lx}}'
       unit_of_measurement: lx
+
     # Olivia Room
      kids_room_temperature:
       friendly_name: 'Olivia Room'
-      value_template: '{{states.sensor.kids_room_motion_sensor.attributes.temperature}}'
+      value_template: '{{states.binary_sensor.kids_room_motion_sensor.attributes.temperature}}'
       unit_of_measurement: "C"
      kids_room_lux:
       friendly_name: 'Olivia Room Lux'
-      value_template: '{{states.sensor.kids_room_motion_sensor.attributes.lx}}'
+      value_template: '{{states.binary_sensor.kids_room_motion_sensor.attributes.lx}}'
       unit_of_measurement: "lx"
+
     # Bedroom Hallway
      bedroom_hallway_temperature:
       friendly_name: 'Bedroom Hallway'
-      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.temperature}}'
+      value_template: '{{states.binary_sensor.bedroom_motion_sensor.attributes.temperature}}'
       unit_of_measurement: "C"
      bedroom_hallway_lux:
       friendly_name: 'Bedroom Hallway Lux'
-      value_template: '{{states.sensor.bedroom_motion_sensor.attributes.lx}}'
-      unit_of_measurement: "lx"    
+      value_template: '{{states.binary_sensor.bedroom_motion_sensor.attributes.lx}}'
+      unit_of_measurement: "lx"
+
     # Lounge Hallway
      lounge_hallway_temperature:
       friendly_name: 'Lounge Hallway'
-      value_template: '{{states.sensor.lounge_hallway_motion_sensor.attributes.temperature}}'
+      value_template: '{{states.binary_sensor.lounge_hallway_motion_sensor.attributes.temperature}}'
       unit_of_measurement: "C"
      lounge_hallway_lux:
       friendly_name: 'Lounge Hallway Lux'
-      value_template: '{{states.sensor.lounge_hallway_motion_sensor.attributes.lx}}'
-      unit_of_measurement: "lx"    
-    # Pantry Hallway
+      value_template: '{{states.binary_sensor.lounge_hallway_motion_sensor.attributes.lx}}'
+      unit_of_measurement: "lx"
+
+    # Pantry
      pantry_temperature:
       friendly_name: 'Pantry'
-      value_template: '{{states.sensor.pantry_motion_sensor.attributes.temperature}}'
+      value_template: '{{states.binary_sensor.pantry_motion_sensor.attributes.temperature}}'
       unit_of_measurement: "C"
      pantry_lux:
       friendly_name: 'Pantry Lux'
-      value_template: '{{states.sensor.pantry_motion_sensor.attributes.lx}}'
-      unit_of_measurement: "lx"       
+      value_template: '{{states.binary_sensor.pantry_motion_sensor.attributes.lx}}'
+      unit_of_measurement: "lx"
+
     # Garage
      garage_temperature:
       friendly_name: 'Garage'
-      value_template: '{{states.sensor.garage_motion_sensor_motion_1.attributes.temperature}}'
+      value_template: '{{states.binary_sensor.garage_motion_sensor_motion_1.attributes.temperature}}'
       unit_of_measurement: "C"
      garage_lux:
       friendly_name: 'Garage Lux'
-      value_template: '{{states.sensor.garage_motion_sensor_motion_1.attributes.lx}}'
-      unit_of_measurement: "lx"    
+      value_template: '{{states.binary_sensor.garage_motion_sensor_motion_1.attributes.lx}}'
+      unit_of_measurement: "lx"
 
     # Switch Fan Power Use
      switch_fan_power:
       friendly_name: 'Fan Power Use'
-      value_template: '{{states.switch.plug_158d0001f55077.attributes.load_power}}'
-      unit_of_measurement: "W"      
+      value_template: '{{states.binary_switch.plug_158d0001f55077.attributes.load_power}}'
+      unit_of_measurement: "W"
+
+    #  olivia_heartrate:
+    #     friendly_name: 'Oliva Heartrate'
+    #     unit_of_measurement: "bpm"
+    #     value_template: '{{states.olivia_s_owlet_heart_rate}}'
+
 
 # MQTT Sensor
   - platform: mqtt

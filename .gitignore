@@ -15,7 +15,7 @@ entity_registry.yaml
 *.db-wal
 *.storage
 *.config_entries
-
+*.pem
 
 # Folders
 /deps

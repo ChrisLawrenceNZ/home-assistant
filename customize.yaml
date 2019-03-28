@@ -6,17 +6,17 @@ light.Gateway_Light_7811dcb39434:
 
 #Kitchen Temperature
 sensor.temperature_158d0001fa5114:
-  friendly_name: Kitchen
+  friendly_name: Living Room Shelf Temperature
   icon: mdi:thermometer
 
 sensor.humidity_158d0001fa5114:
-  friendly_name: Living Room Humidity
+  friendly_name: Living Room Shelf Humidity
 
 switch.plug_158d0001f55077:
   friendly_name: Dehumidifer
 
 sensor.illumination_7811dcb39434:
-  friendly_name: Living Room Lux
+  friendly_name: Garage Rack Lux
 
 switch.spare_lamp2:
   friendly_name: Spare Bedroom Lamp 2

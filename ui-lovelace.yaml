@@ -47,7 +47,7 @@ views:
           - sensor.pantry_temperature
           - sensor.garage_temperature
           - sensor.office_temp
-          - sensor.office_humidity
+          - sensor.temperature_158d0001fa5114
 # Time and Date
       - id: 240078f42a5549b5bd69091a45c6291b
         type: vertical-stack
@@ -149,7 +149,8 @@ views:
     title: camera_view
     icon: mdi:camera
     cards:
-      - id: 4fb3ba1f4947444aaf972fd52d38076a  # Automatically created id
+ # Nwst Camera    
+      - id: 4fb3ba1f4947444aaf972fd52d38076a 
         type: picture-entity
         title: Living Room
         entity: camera.living_room
@@ -164,9 +165,40 @@ views:
         camera_image:  camera.baby
         show_info: true
         tap_action: dialog
+  # Baby Camera
+      - id: FrontDoorCamera
+        type: picture-entity
+        title: Living Room
+        entity:  camera.front_door
+        camera_image:  camera.front_door
+        show_info: true
+        tap_action: dialog
+ # Garage Camera
+      - id: GarageCamera
+        type: picture-entity
+        title: Living Room
+        entity:  camera.garage_camera
+        camera_image:  camera.garage_camera
+        show_info: true
+        tap_action: dialog
+
+# Baby
+  - id: 3  # Automatically created id
+    title: baby
+    icon: mdi:baby
+    cards:
+      - id: FrontDoorCamera
+        type: history-graph
+        title: 'Baby Heartrate'
+        entities:
+          - sensor.olivia_s_owlet_heart_rate
+        name: Baby Hearrate
+        hours_to_show: '72'
+        unit_of_measurement: "C"
+
 
 # Plants
-  - id: 3  # Automatically created id
+  - id: 4  # Automatically created id
     title: outside_view
     icon: mdi:pine-tree
     cards:
@@ -175,7 +207,7 @@ views:
         title: Green Plant
         entity: plant.green_plant
 # Status 
-  - id: 4  # Automatically created id
+  - id: 5  # Automatically created id
     title: status_view
     icon: mdi:battery-outline
     cards:
@@ -190,7 +222,7 @@ views:
           - sensor.living_room_nest_protect_battery_health_2
           - sensor.master_bedroom_nest_protect_battery_health
 # Debug
-  - id: 5  # Automatically created id
+  - id: 6  # Automatically created id
     title: debug_view
     icon: mdi:server
     cards:

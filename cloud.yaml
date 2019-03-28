@@ -1,0 +1,54 @@
+#Google Cloud support 
+google_actions:
+  filter:
+# Devices not to sync to google assistant
+   exclude_domains:
+      - media_player
+      - group
+   exclude_entities:
+      - switch.office_lamp
+      - switch.spare_lamp
+      - switch.spare_lamp2
+      - light.gateway_light_7811dcb39434
+      - light.entertainment_area_1
+      - light.front_door
+      - light.hallway
+      - light.garage
+      - light.driveway
+      - light.dining
+      - light.bedroom
+      - light.kid_s_bedroom
+      - light.kitchen
+      - light.kitchen_pendent
+      - light.laundry
+      - light.living_room
+      - light.office
+      - light.pantry
+      - light.wardrobe
+      - light.spare_bedroom
+alexa:
+  filter:
+    exclude_domains:
+      - media_player
+      - group
+    exclude_entities:
+      - switch.office_lamp
+      - switch.spare_lamp
+      - switch.spare_lamp2
+      - light.gateway_light_7811dcb39434
+      - light.entertainment_area_1
+      - light.front_door
+      - light.hallway
+      - light.garage
+      - light.driveway
+      - light.dining
+      - light.bedroom
+      - light.kid_s_bedroom
+      - light.kitchen
+      - light.kitchen_pendent
+      - light.laundry
+      - light.living_room
+      - light.office
+      - light.pantry
+      - light.wardrobe
+      - light.spare_bedroom

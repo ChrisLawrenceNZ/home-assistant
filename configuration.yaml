@@ -2,10 +2,17 @@ homeassistant:
   name: Home
   latitude: !secret latitude
   longitude: !secret longitude
-  elevation: 0
+  elevation: !secret elevation
   unit_system: metric
   time_zone: !secret time_zone
   customize: !include customize.yaml
+  auth_providers:
+  - type: homeassistant
+  - type: trusted_networks
+    trusted_networks:
+      - 192.168.1.0/24
+      - fd00::/8
+      - 172.30.32.0/24
 
 # Enables the frontend
 frontend:
@@ -13,12 +20,15 @@ frontend:
 # Enables configuration UI
 config:
 
+# Enables the system health default component
+system_health:
+
 # Enables the lovelace yaml mode
 lovelace:
   mode: yaml
 
 http:
-  api_password: !secret http_password
+  # api_password: !secret http_password
   base_url: !secret base_url
   # ssl_certificate: /ssl/fullchain.pem
   # ssl_key: /ssl/privkey.pem
@@ -26,7 +36,8 @@ http:
     - http://hassio:7080
 
 api:
-  api_password: !secret api_password
+  # api_password: !secret api_password
+
 
 # Checks for available updates
 updater:
@@ -37,10 +48,10 @@ logger:
  default: warn
  logs:
   homeassistant.components.zha: debug
-  bellows.ezsp: debug
-  bellows.uart: debug
-  zigpy.zdo: debug
-  zigpy.application: debug
+  # bellows.ezsp: debug
+  # bellows.uart: debug
+  # zigpy.zdo: debug
+  # zigpy.application: debug
 
 # Discover some devices automatically
 discovery:
@@ -52,6 +63,23 @@ conversation:
 
 # Enables support for tracking state changes over time
 history:
+  exclude:
+    domains:
+      - updater
+    entities:
+      - sensor.time
+      - sensor.time_date
+      - sensor.last_boot
+
+recorder:
+  purge_keep_days: 7
+  exclude:
+    domains:
+      - updater
+    entities:
+      - sensor.time
+      - sensor.time_date
+      - sensor.last_boot
 
 # View all events in a logbook
 logbook:
@@ -62,36 +90,11 @@ map:
 # Track the sun
 sun:
 
-# Cloud Google Home Assistant
-cloud:
-  google_actions:
-    filter:
-# Devices not to sync to google assistant
-     exclude_domains:
-        - media_player
-        - group
-     exclude_entities:
-        - switch.office_lamp
-        - switch.spare_lamp
-        - switch.spare_lamp2
-        - light.gateway_light_7811dcb39434
-        - light.entertainment_area_1
-        - light.front_door
-        - light.hallway
-        - light.garage
-        - light.driveway
-        - light.dining
-        - light.bedroom
-        - light.kid_s_bedroom
-        - light.kitchen
-        - light.kitchen_pendent
-        - light.laundry
-        - light.living_room
-        - light.office
-        - light.pantry
-        - light.wardrobe
-        - light.spare_bedroom
+# Enable ffmpeg components
+ffmpeg:
 
+# Allow Camera Live Streams
+stream:
 
 # Additional Side Panels
 panel_iframe:
@@ -107,10 +110,10 @@ panel_iframe:
     title: SonWEB
     icon: mdi:lightbulb-on
     url: https://hassio:9541
-  # controlpanel:
-  #   title: Control Panel
-  #   icon: mdi:tablet-ipad
-  #   url: http://hassio:7080
+  controlpanel:
+    title: ESPHome
+    icon: mdi:tablet-ipad
+    url: http://hassio:6052
 
 panel_custom:
   - name: floorplan
@@ -123,19 +126,27 @@ panel_custom:
 zha:
  usb_path: /dev/ttyUSB0
  database_path: zigbee.db
- baudrate: 57600
-#  device_config:
-#     00:15:8d:00:01:fa:51:14:
-#       type: 'sensor'
-#     00:15:8d:00:01:a2:c7:a2:
-#       type: 'binary_sensor'
+ enable_quirks: true
 
 # Arlo
 arlo:
   username: !secret arlo_username
   password: !secret arlo_password
+
+# Ring Doorbell
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+# Cameras
 camera:
   - platform: arlo
+  - platform: ring
+# Unifi Cameras
+  - platform: generic
+    name: Garage Camera
+    still_image_url: "http://192.168.1.177/snap.jpeg"
+    stream_source: "rtsp://192.168.1.3:7447/5b418a5ce4b019acf4e6586c_0"
 
 # Text to speech
 tts:
@@ -144,6 +155,13 @@ tts:
 # Device Tracker
 device_tracker:
   - platform: bluetooth_tracker
+  - platform: hue_custom
+
+hue:
+
+owlet:
+  username: !secret OWLET_USER
+  password: !secret OWLET_PASSWORD
 
 # Plex
 # media_player:
@@ -171,13 +189,13 @@ xiaomi_aqara:
     mac: !secret xiaomi_mac
     key: !secret xiaomi_key
 
-# Xiaomi Mi Vacuum
-vacuum:
-  - platform: xiaomi_miio
-    host: 192.168.1.2
-    token: !secret xiaomivac_key
+# # Xiaomi Mi Vacuum
+# vacuum:
+#   - platform: xiaomi_miio
+#     host: 192.168.1.2
+#     token: !secret xiaomivac_key
 
-#Includes
+#Includes to split config 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/
 script: !include scripts.yaml
@@ -187,3 +205,4 @@ binary_sensor: !include binary_sensor.yaml
 plant: !include plant.yaml
 climate: !include climate.yaml
 light: !include light.yaml
+cloud: !include cloud.yaml
